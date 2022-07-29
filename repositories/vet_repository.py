@@ -1,3 +1,4 @@
+from cProfile import run
 from db.run_sql import run_sql
 from models.vet import Vet
 
@@ -25,6 +26,10 @@ def select_all():
         vets.append(vet)
     return vets
 
+def update(vet):
+    sql = "UPDATE vets SET name = %s WHERE id = %s"
+    values = [vet.name, vet.id]
+    run_sql(sql, values)
 
 
 
