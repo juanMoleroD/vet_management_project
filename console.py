@@ -22,9 +22,9 @@ owner_repository.save(owner_1)
 animal_1 = Animal("Tony The Tiger", datetime(2010,6,24), "tiger", owner_1, vet_1, "All meat diet forever, doesn't like light")
 animal_repository.save(animal_1)
 
-animal_2 = Animal("TIGRIS TIGRIS", datetime(2010,6,24), "tiger", owner_1, vet_1, "All meat diet forever, doesn't like light", animal_1.id)
-animal_repository.save(animal_1)
+
+
+
+
+
 #pdb.set_trace()
-
-animal_repository.update(animal_2)
-

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    {% for vet in all_vets %}
+    <article>
+        <h2 class="vet-name">{{ vet.name }}</h2>
+        <h3>Patients</h3>
+        <ul>
+            <li>animal name placeholder</li>
+            <li>animal name placeholder</li>
+        </ul>
+    </article>
+    {% endfor %}
+</section>
+
+{% endblock %}
