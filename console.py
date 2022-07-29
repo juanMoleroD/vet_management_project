@@ -11,3 +11,4 @@ vet_repository.save(vet_1)
 vet_2 = Vet("Dr Dolitle")
 vet_repository.save(vet_2)
 
+vet_repository.delete(vet_2.id)
