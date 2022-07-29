@@ -24,5 +24,5 @@ animal_repository.save(animal_1)
 
 #pdb.set_trace()
 
-print(animal_repository.select(animal_1.id).__dict__)
+print(animal_repository.select_all())
 

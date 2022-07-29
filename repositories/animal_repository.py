@@ -17,11 +17,21 @@ def select(id):
     animal = None
     if results:
         result = results[0]
-        #pdb.set_trace()
         vet = vet_repository.select(result["vet_id"])
         owner = owner_repository.select(result["owner_id"])
         animal = Animal(result["name"], result["date_of_birth"], result["type"], owner, vet, result["treatment_notes"], result["id"])
     return animal
+
+def select_all():
+    sql = "SELECT * FROM animals"
+    results = run_sql(sql)
+    animals = []
+    for row in results:
+        vet = vet_repository.select(row["vet_id"])
+        owner = owner_repository.select(row["owner_id"])
+        animal = Animal(row["name"], row["date_of_birth"], row["type"], owner, vet, row["treatment_notes"], row["id"])
+        animals.append(animal)
+    return animals
 
 def delete_all():
     sql = "DELETE FROM animals"
