@@ -10,3 +10,6 @@ class Animal:
         self.vet = vet
         self.treatment_notes = treatment_notes
         self.id = id
+    
+    def get_contact_details(self):
+        return self.owner.contact_details
