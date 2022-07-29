@@ -1,3 +1,4 @@
+import pdb
 from db.run_sql import run_sql
 from models.vet import Vet
 
@@ -10,9 +11,10 @@ def save(vet):
 def select(id):
     sql = "SELECT * FROM vets WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    results = run_sql(sql, values)
     vet = None
-    if result:
+    if results:
+        result = results[0]
         vet = Vet(result["name"], result["id"])
     return vet
 

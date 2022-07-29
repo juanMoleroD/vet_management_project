@@ -10,10 +10,11 @@ def save(owner):
 def select(id):
     sql = "SELECT * FROM owners WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    results = run_sql(sql, values)
     owner = None
-    if result:
-        owner = Owner(result["name"], result["contact_details"])
+    if results:
+        result = results[0]
+        owner = Owner(result["name"], result["contact_details"], result["id"])
     return owner
 
 def select_all():
