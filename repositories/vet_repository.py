@@ -10,9 +10,12 @@ def save(vet):
 def select(id):
     sql = "SELECT * FROM vets WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
     vet = None
     if result:
         vet = Vet(result["name"], result["id"])
     return vet
 
+def delete_all():
+    sql = "DELETE FROM vets"
+    run_sql(sql)
