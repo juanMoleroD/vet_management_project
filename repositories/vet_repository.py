@@ -16,6 +16,18 @@ def select(id):
         vet = Vet(result["name"], result["id"])
     return vet
 
+def select_all():
+    sql = "SELECT * FROM vets"
+    results = run_sql(sql)
+    vets = []
+    for row in results:
+        vet = Vet(row["name"], row["id"])
+        vets.append(vet)
+    return vets
+
+
+
+
 def delete_all():
     sql = "DELETE FROM vets"
     run_sql(sql)
