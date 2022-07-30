@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+body > header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 50px;
+    background-color: violet;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#nav-list {
+    list-style: none;
+    display: flex;
+}
+
+#nav-list > li {
+    margin: 20px;
+    font-size: 1.3rem;
+}
+
+/* Main content */
+
+
+/* content card  */
+.content-card {
+    width: 50%;
+    margin:auto;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    justify-content: center;
+    
+}
+
+.content-card > h1 {
+    background-color: purple;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 2rem; 
+}
+
+.content-card > ul > li {
+    font-size: 1.3rem;
+    padding: 6px;
+}
+
+
+/* misc */
+.link-button {
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: purple;
+    text-align: center;
+    color: white;
+    
+}
