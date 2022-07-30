@@ -44,7 +44,21 @@ def select_all_with_vet_id(vet_id):
         animal = Animal(row["name"], row["date_of_birth"], row["type"], owner, vet, row["treatment_notes"], row["id"])
         animals.append(animal)
     return animals
-    
+
+def select_all_with_owner_id(owner_id):
+    sql = "SELECT * FROM animals WHERE owner_id = %s"
+    values = [owner_id]
+    results = run_sql(sql, values)
+    owner = owner_repository.select(owner_id)
+    animals = []
+    for row in results:
+        vet = vet_repository.select(row["vet_id"])
+        animal = Animal(row["name"], row["date_of_birth"], row["type"], owner, vet, row["treatment_notes"], row["id"])
+        animals.append(animal)
+    return animals
+
+
+
 
 def update(animal):
     sql = "UPDATE animals SET (name, date_of_birth, type, owner_id, vet_id, treatment_notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"

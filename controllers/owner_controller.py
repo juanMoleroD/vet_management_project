@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint, render_template, redirect, request
-from repositories import owner_repository
+from repositories import animal_repository, owner_repository
 from models.owner import Owner
 
 owners_blueprint = Blueprint("owners", __name__)
@@ -12,7 +12,8 @@ def show_all_owners():
 @owners_blueprint.route("/owners/<id>")
 def show_one_owner(id):
     owner = owner_repository.select(id)
-    return render_template("owners/owner.html", owner=owner)
+    animals_owned = animal_repository.select_all_with_owner_id(id)
+    return render_template("owners/owner.html", owner=owner, animals=animals_owned)
 
 @owners_blueprint.route("/owners/new")
 def get_new_form():
