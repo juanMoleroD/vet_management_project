@@ -2,16 +2,14 @@
 {% block content %}
 
 <section>
-    <ul>
-        {% for owner in all_owners %}
-        <li>
-            <a href="/owners/{{ owner.id }}">{{ owner.name }}</a>
-        </li>
-        <li>
-            Contact: {{ owner.contact_details }}
-        </li>
-        {% endfor %}
-    </ul>
+    {% for owner in all_owners %}
+    <h1>
+        <a href="/owners/{{ owner.id }}">{{ owner.name }}</a>
+    </h1>
+    <h3>Contact: {{ owner.contact_details }}</h3>
+    {% endfor %}
 </section>
+<br>
+<a href="/owners/new">Add owner</a>
 
 {% endblock %}

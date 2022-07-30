@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <section>
+            <h1>Edit Vet </h1>
+            <form action="/vets/{{ vet_to_edit.id }}" method="POST" id="vets-form">
+                <section class="form-items">
+                    <label for="vet-name"> Name</label>
+                    <input type="text" name='name' id="vet-name" value="{{ vet_to_edit.name }}">
+                    <br>
+                    <input id='submit-button' type="submit" value="Save changes">
+                    <br>
+                    <a href="/vets/{{vet_to_edit.id}}">Back</a>
+                </section>
+            </form>
+            
+        </section>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <section>
+            <h1>Add New Owner </h1>
+            <form action="/owners" method="POST" id="new-owners-form">
+                <section class="form-items">
+                    <label for="owners-name" >Name</label>
+                    <input type="text" name='name' id="owners-name">
+                    <label for="contacts">Contact Details</label>
+                    <input type="text" name="contact-details" id="contacts">
+                    <br>
+                    <input id='submit-button' type="submit" value="Add owner">
+                    <br>
+                    <a href="/owners">Back</a>
+                </section>
+            </form>
+            
+        </section>
+
+{% endblock %}

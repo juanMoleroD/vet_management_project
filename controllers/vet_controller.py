@@ -29,3 +29,15 @@ def create_vet():
 def delete(id):
     vet_repository.delete(id)
     return redirect("/vets")
+
+@vets_blueprint.route("/vets/<id>/edit")
+def get_update_form(id):
+    vet_to_edit = vet_repository.select(id)
+    return render_template("vets/edit.html", vet_to_edit=vet_to_edit)
+
+@vets_blueprint.route("/vets/<id>", methods=["POST"])
+def update(id):
+    name = request.form["name"]
+    updated_vet = Vet(name, id)
+    vet_repository.update(updated_vet)
+    return redirect("/vets/" + id)
