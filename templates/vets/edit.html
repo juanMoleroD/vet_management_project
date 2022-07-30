@@ -1,19 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-        <section>
-            <h1>Edit Vet </h1>
-            <form action="/vets/{{ vet_to_edit.id }}" method="POST" id="vets-form">
-                <section class="form-items">
-                    <label for="vet-name"> Name</label>
-                    <input type="text" name='name' id="vet-name" value="{{ vet_to_edit.name }}">
+<main>
+    <section class="card">
+        <h1>Edit Vet</h1>
+        <section class="card-content">
+            <form action="/vets/{{ vet_to_edit.id }}" method="POST" id="vet-form" class="edit-form">
+                    <label for="vet-name" >Name: </label>
+                    <input type="text" name='name' id="vet-name" value="{{ vet_to_edit.name }}" class="edit-form-element">
                     <br>
-                    <input id='submit-button' type="submit" value="Save changes">
-                    <br>
-                    <a href="/vets/{{vet_to_edit.id}}">Back</a>
-                </section>
+                    <input id='submit-button' type="submit" value="Save" class="link-button">
             </form>
-            
         </section>
+        <br>
+        <nav class="card-nav">
+            <form action="/vets/{{vet_to_edit.id}}">
+                <input type="submit" value="Back" class="link-button">
+            </form>
+        </nav>
+    </section>
+
+</main>
+
+
+
+
+
+<section>
+    <h1> </h1>
+    
+
+</section>
 
 {% endblock %}

@@ -1,25 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
 <main>
-    
-    <section class="content-card">
+    <section class="card">
         <h1>Team of Vets</h1>
-        <ul>
-            {% for vet in all_vets %}
-            <li>
-                <a href="/vets/{{ vet.id }}">{{ vet.name }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-        <form action="/vets/new" id="add-new-button">
-            <input type="submit" value="Add Vet" class="link-button">
-        </form>
+        <section class="card-content">
+            <ul>
+                {% for vet in all_vets %}
+                <li>
+                    <a href="/vets/{{ vet.id }}">{{ vet.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <nav class="card-nav">
+            <form action="/vets/new" id="add-new-button">
+                <input type="submit" value="Add Vet" class="link-button">
+            </form>
+        </nav>
     </section>
-
-    
-
 </main>
-
 {% endblock %}
