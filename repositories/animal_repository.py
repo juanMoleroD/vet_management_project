@@ -33,6 +33,19 @@ def select_all():
         animals.append(animal)
     return animals
 
+def select_all_with_vet_id(vet_id):
+    sql = "SELECT * FROM animals WHERE vet_id = %s"
+    values = [vet_id]
+    results = run_sql(sql, values)
+    vet = vet_repository.select(vet_id)
+    animals = []
+    for row in results:
+        owner = owner_repository.select(row["owner_id"])
+        animal = Animal(row["name"], row["date_of_birth"], row["type"], owner, vet, row["treatment_notes"], row["id"])
+        animals.append(animal)
+    return animals
+    
+
 def update(animal):
     sql = "UPDATE animals SET (name, date_of_birth, type, owner_id, vet_id, treatment_notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [animal.name, animal.date_of_birth, animal.type, animal.owner.id, animal.vet.id, animal.treatment_notes, animal.id]

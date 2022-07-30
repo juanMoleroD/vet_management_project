@@ -1,3 +1,4 @@
+from optparse import Values
 import pdb
 from db.run_sql import run_sql
 from models.vet import Vet
@@ -40,3 +41,10 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM vets"
     run_sql(sql)
+
+def get_patients_from_vet_id(id):
+    sql = '''SELECT vets.* 
+                FROM vets INNER JOIN animals ON vets.id = animals.vet_id
+                WHERE animals.vet_id = %s'''
+    values = [id]
+    results = run_sql(sql, values)

@@ -4,9 +4,9 @@
     <h2>{{ vet.name }}</h2>
     <h3>Patients:</h3>
     <ul>
-        <li>Placeholder animal name</li>
-        <li>Placeholder animal name</li>
-        <li>Placeholder animal name</li>
+        {% for animal in animals %}
+        <li><a href="/animals/{{ animal.id }}">{{animal.name}}</a></li>
+        {% endfor %}
     </ul>
 </article>
 <br>

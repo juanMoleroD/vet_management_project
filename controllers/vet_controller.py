@@ -12,7 +12,8 @@ def show_all_vets():
 @vets_blueprint.route("/vets/<id>")
 def show_one_vet(id):
     vet = vet_repository.select(id)
-    return render_template("vets/vet.html", vet=vet)
+    patient_animals = animal_repository.select_all_with_vet_id(id)
+    return render_template("vets/vet.html", vet=vet, animals=patient_animals)
 
 @vets_blueprint.route("/vets/new")
 def get_new_form():
@@ -41,3 +42,4 @@ def update(id):
     updated_vet = Vet(name, id)
     vet_repository.update(updated_vet)
     return redirect("/vets/" + id)
+
