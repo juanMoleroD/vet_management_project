@@ -12,7 +12,7 @@
                 <label for="type">Type</label>
                 <input type="text" name="type" id="animal-type" class="new-edit-form-element">
                 <label for="owner">Owner</label>
-                <select name="owner_id" id="owner" class="new-edit-form-element">
+                <select name="owner_id" id="owner" class="new-edit-form-element" >
                     {% for owner in owners %}
                     <option value="{{ owner.id }}">{{ owner.name }}</option>
                     {% endfor %}

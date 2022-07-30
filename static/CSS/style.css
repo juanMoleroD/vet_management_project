@@ -1,6 +1,11 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: url('/static/images/dog-bw.jpg');
+    background-size: cover;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    height: 900px;
 }
 
 /* header */
@@ -9,7 +14,7 @@ body > header {
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 50px;
-    background-color: violet;
+    background-color: purple;
     color: white;
     font-size: 1.2rem;
 }
@@ -24,23 +29,28 @@ body > header {
     font-size: 1.3rem;
 }
 
+#nav-list > li > a:any-link {
+    color: white;
+}
+
 /* Main content */
 
 
 /* cards  */
 .card {
-    width: 50%;
-    margin:auto;
+    width: 40%;
+    margin-left: 40px;
     margin-top: 20px;
     box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ;
     border-radius: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    justify-content: center;
+    /* border-top-left-radius: 0;
+    border-top-right-radius: 0; */
+    justify-content: left;
     align-items: center;
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
+    background-color: white;
 
     
 }
