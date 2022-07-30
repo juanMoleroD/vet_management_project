@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <section>
+            <h1>Add New Vet </h1>
+            <form action="/vets" method="POST" id="new-vets-form">
+                <section class="form-items">
+                    <label for="vet-name" >Name</label>
+                    <input type="text" name='name' id="vet-name">
+                    <br>
+                    <input id='submit-button' type="submit" value="Add Vet">
+                    <br>
+                    <a href="/vets">Back</a>
+                </section>
+            </form>
+            
+        </section>
+
+{% endblock %}

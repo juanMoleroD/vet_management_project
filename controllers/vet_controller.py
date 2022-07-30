@@ -12,3 +12,9 @@ def show_all_vets():
 def show_one_vet(id):
     vet = vet_repository.select(id)
     return render_template("vets/vet.html", vet=vet)
+
+@vets_blueprint.route("/vets/new")
+def get_new_form():
+    return render_template("vets/new.html")
+
+@
