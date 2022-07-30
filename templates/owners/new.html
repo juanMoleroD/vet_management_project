@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-
-        <section>
-            <h1>Add New Owner </h1>
-            <form action="/owners" method="POST" id="new-owners-form">
-                <section class="form-items">
-                    <label for="owners-name" >Name</label>
-                    <input type="text" name='name' id="owners-name">
-                    <label for="contacts">Contact Details</label>
-                    <input type="text" name="contact-details" id="contacts">
-                    <br>
-                    <input id='submit-button' type="submit" value="Add owner">
-                    <br>
-                    <a href="/owners">Back</a>
-                </section>
+<main>
+    <section class="card">
+        <h1>Add New Owner</h1>
+        <section class="card-content">
+            <form action="/owners" method="POST" id="new-owners-form" class="new-edit-form">
+                <label for="owners-name">Name</label>
+                <input type="text" name='name' id="owners-name" class="new-edit-form-element">
+                <label for="contacts">Contact Details</label>
+                <input type="text" name="contact-details" id="contacts" class="new-edit-form-element">
+                <br>
+                <input type="submit" value="Add owner" class="link-button">
+                <br>
             </form>
-            
         </section>
-
+        <nav class="card-nav">
+            <form action="/owners">
+                <input type="submit" value="Back" class="link-button">
+            </form>
+        </nav>
+    </section>
+</main>
 {% endblock %}

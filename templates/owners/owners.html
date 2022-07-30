@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<section>
-    {% for owner in all_owners %}
-    <h1>
-        <a href="/owners/{{ owner.id }}">{{ owner.name }}</a>
-    </h1>
-    <h3>Contact: {{ owner.contact_details }}</h3>
-    {% endfor %}
-</section>
-<br>
-<a href="/owners/new">Add owner</a>
-
+<main>
+    <section class="card">
+        <h1>Owners</h1>
+        <section class="card-content">
+            <ul>
+                {% for owner in all_owners %}
+                <li>
+                    <a href="/owners/{{ owner.id }}">{{ owner.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <nav class="card-nav">
+            <form action="/owners/new" id="add-new-button">
+                <input type="submit" value="Add Owner" class="link-button">
+            </form>
+        </nav>
+    </section>
+</main>
 {% endblock %}
