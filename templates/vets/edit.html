@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <main>
     <section class="card">
         <h1>Edit Vet</h1>
         <section class="card-content">
-            <form action="/vets/{{ vet_to_edit.id }}" method="POST" id="vet-form" class="edit-form">
-                    <label for="vet-name" >Name: </label>
-                    <input type="text" name='name' id="vet-name" value="{{ vet_to_edit.name }}" class="edit-form-element">
-                    <br>
-                    <input id='submit-button' type="submit" value="Save" class="link-button">
+            <form action="/vets/{{ vet_to_edit.id }}" method="POST" id="vet-form" class="new-edit-form">
+                <label for="vet-name">Name: </label>
+                <input type="text" name='name' id="vet-name" value="{{ vet_to_edit.name }}" class="new-edit-form-element">
+                <br>
+                <input type="submit" value="Save" class="link-button">
             </form>
         </section>
         <br>
@@ -19,17 +18,5 @@
             </form>
         </nav>
     </section>
-
 </main>
-
-
-
-
-
-<section>
-    <h1> </h1>
-    
-
-</section>
-
 {% endblock %}

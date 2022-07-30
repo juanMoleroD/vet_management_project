@@ -74,9 +74,10 @@ body > header {
 }
 
 .card-content > ul > li {
-    font-size: 18px;
+    font-size: 22px;
     list-style: none;
     text-align: center;
+    padding-top: 4px;
 }
 
 .card-nav {
@@ -89,24 +90,24 @@ body > header {
 
 
 /* forms */
-
-.edit-form {
+    /* edit forms */
+.new-edit-form {
     display: flex;
     flex-direction: column;
 }
 
-.edit-form-element {
+.new-edit-form-element {
     padding: 5px;
     text-align: center;
     font-size: 16px;
 }
 
-.edit-form > label {
+.new-edit-form > label {
     padding: 10px;
     font-size: 20px;
 }
 
-.edit-form > .link-button {
+.new-edit-form > .link-button {
     width: 60%;
     margin: auto;
 }

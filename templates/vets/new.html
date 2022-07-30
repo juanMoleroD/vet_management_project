@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-        <section>
-            <h1>Add New Vet </h1>
-            <form action="/vets" method="POST" id="new-vets-form">
-                <section class="form-items">
-                    <label for="vet-name" >Name</label>
-                    <input type="text" name='name' id="vet-name">
-                    <br>
-                    <input id='submit-button' type="submit" value="Add Vet">
-                    <br>
-                    <a href="/vets">Back</a>
-                </section>
+<main>
+    <section class="card">
+        <h1>Add New Vet</h1>
+        <section class="card-content">
+            <form action="/vets" method="POST" id="new-vets-form" class="new-edit-form">
+                <label for="vet-name">Name</label>
+                <input type="text" name='name' id="vet-name" class="new-edit-form-element">
+                <br>
+                <input type="submit" value="Add Vet" class="link-button">
+                <br>
             </form>
-            
         </section>
-
+        <nav class="card-nav">
+            <form action="/vets">
+                <input type="submit" value="Back" class="link-button">
+            </form>
+        </nav>
+    </section>
+</main>
 {% endblock %}
