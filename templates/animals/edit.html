@@ -11,12 +11,25 @@
                     <input type="date" name="date-of-birth" id="dob" value="{{ animal.date_of_birth}}">
                     <label for="type">Type</label>
                     <input type="text" name="type" id="animal-type" value="{{ animal.type }}">
-                    <label for="owner">Owner - {{ animal.owner.name }}</label>
+                    <label for="owner">Owner</label>
+                    <select name="owner_id" id="owner">
+                        {% for owner in owners %}
+                        <option value="{{ owner.id }}" 
+                            {% if owner.id == animal.owner.id %}
+                            selected="selected"
+                            {% endif %}
+                            >{{ owner.name }}</option>
+                        {% endfor %}
+                    </select>
 
-                    <label for="vet">Current Vet: {{ animal.vet.name }}</label>
+                    <label for="vet">Vet</label>
                     <select name="vet_id" id="vet">
                         {% for vet in vets%}
-                        <option value="{{ vet.id }}">{{ vet.name }}</option>
+                        <option value="{{ vet.id }}"
+                            {% if vet.id == animal.vet.id %}
+                            selected="selected"
+                            {% endif %}
+                            >{{ vet.name }}</option>
                         {% endfor %}
                     </select>
                     <label for="notes">Treatment Notes</label>
