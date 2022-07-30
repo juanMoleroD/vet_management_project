@@ -6,7 +6,7 @@ from models.animal import Animal
 def save(animal):
     sql = '''INSERT INTO animals (name, date_of_birth, type, owner_id, vet_id, treatment_notes) 
                 VALUES (%s, %s, %s, %s, %s, %s) RETURNING id'''
-    values = [animal.name, animal.date_of_birth.strftime('%Y-%m-%d'), animal.type, animal.owner.id, animal.vet.id, animal.treatment_notes]
+    values = [animal.name, animal.date_of_birth, animal.type, animal.owner.id, animal.vet.id, animal.treatment_notes]
     result = run_sql(sql, values) 
     animal.id = result[0]["id"]
 

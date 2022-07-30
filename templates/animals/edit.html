@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <section>
+            <h1>Edit Animal </h1>
+            <form action="/animals/{{ animal.id }}" method="POST" id="new-animals-form">
+                <section class="form-items">
+                    <label for="animals-name">Name</label>
+                    <input type="text" name='name' id="animals-name" value="{{ animal.name }}">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" name="date-of-birth" id="dob" value="{{ animal.date_of_birth}}">
+                    <label for="type">Type</label>
+                    <input type="text" name="type" id="animal-type" value="{{ animal.type }}">
+                    <label for="owner">Owner - {{ animal.owner.name }}</label>
+
+                    <label for="vet">Current Vet: {{ animal.vet.name }}</label>
+                    <select name="vet_id" id="vet">
+                        {% for vet in vets%}
+                        <option value="{{ vet.id }}">{{ vet.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="notes">Treatment Notes</label>
+                    <textarea name="treatment_notes" id="notes" cols="50" rows="4"></textarea>
+                    <br>
+                    <input id='submit-button' type="submit" value="Save">
+                    <br>
+                    <a href="/animals">Back</a>
+                </section>
+            </form>
+            
+        </section>
+
+{% endblock %}

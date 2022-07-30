@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<article>
+    <h2>{{ animal.name }}</h2>
+    <h4>DOB:  {{ animal.date_of_birth }}</h4>
+    <h4>type: {{ animal.type }}</h4>
+    <h4>Onwer: {{ animal.owner.name }}</h4> 
+    <h4>Vet: {{ animal.vet.name }}</h4>
+    <h4>Treatment Notes</h4>
+    <p>{{ animal.treatment_notes }}</p>
+
+</article>
+<br>
+<nav>
+    <a href="/animals">Back</a>
+    <a href="/animals/{{ animal.id }}/edit">Edit</a>
+    <br>
+    <form action="/animals/{{ animal.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form> 
+    </ul>
+
+</nav>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    {% for animal in all_animals %}
+    <h1>
+        <a href="/animals/{{ animal.id }}">{{ animal.name }}</a>
+    </h1>
+    <h3>Onwer: {{ animal.owner.name }}</h3> 
+    <h3>Vet: {{ animal.vet.name }}</h3>
+
+    {% endfor %}
+</section>
+<br>
+<a href="/animals/new">Add animal</a>
+
+{% endblock %}
