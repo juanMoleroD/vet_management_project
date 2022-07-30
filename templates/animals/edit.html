@@ -1,46 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-
-        <section>
-            <h1>Edit Animal </h1>
-            <form action="/animals/{{ animal.id }}" method="POST" id="new-animals-form">
-                <section class="form-items">
-                    <label for="animals-name">Name</label>
-                    <input type="text" name='name' id="animals-name" value="{{ animal.name }}">
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" name="date-of-birth" id="dob" value="{{ animal.date_of_birth}}">
-                    <label for="type">Type</label>
-                    <input type="text" name="type" id="animal-type" value="{{ animal.type }}">
-                    <label for="owner">Owner</label>
-                    <select name="owner_id" id="owner">
-                        {% for owner in owners %}
-                        <option value="{{ owner.id }}" 
-                            {% if owner.id == animal.owner.id %}
-                            selected="selected"
-                            {% endif %}
-                            >{{ owner.name }}</option>
-                        {% endfor %}
-                    </select>
-
-                    <label for="vet">Vet</label>
-                    <select name="vet_id" id="vet">
-                        {% for vet in vets%}
-                        <option value="{{ vet.id }}"
-                            {% if vet.id == animal.vet.id %}
-                            selected="selected"
-                            {% endif %}
-                            >{{ vet.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <label for="notes">Treatment Notes</label>
-                    <textarea name="treatment_notes" id="notes" cols="50" rows="4"></textarea>
-                    <br>
-                    <input id='submit-button' type="submit" value="Save">
-                    <br>
-                    <a href="/animals">Back</a>
-                </section>
+<main>
+    <section class="card">
+        <h1>Edit animal</h1>
+        <section class="card-content">
+            <form action="/animals/{{ animal.id }}" method="POST" class="new-edit-form">
+                <label for="animals-name">Name</label>
+                <input type="text" name='name' id="animals-name" value="{{ animal.name }}" class="new-edit-form-element">
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="date-of-birth" id="dob" value="{{ animal.date_of_birth}}" class="new-edit-form-element" >
+                <label for="type">Type</label>
+                <input type="text" name="type" id="animal-type" value="{{ animal.type }}" class="new-edit-form-element">
+                <label for="owner">Owner</label>
+                <select name="owner_id" id="owner" class="new-edit-form-element">
+                    {% for owner in owners %}
+                    <option value="{{ owner.id }}" {% if owner.id==animal.owner.id %} selected="selected" {% endif %}>{{
+                        owner.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="vet">Vet</label>
+                <select name="vet_id" id="vet" class="new-edit-form-element">
+                    {% for vet in vets%}
+                    <option value="{{ vet.id }}" {% if vet.id==animal.vet.id %} selected="selected" {% endif %}>{{
+                        vet.name
+                        }}</option>
+                    {% endfor %}
+                </select>
+                <label for="notes">Treatment Notes</label>
+                <textarea name="treatment_notes" id="notes" cols="40" rows="4" ></textarea>
+                <br>
+                <input id='submit-button' type="submit" value="Save" class="link-button" style="width: 40%">
             </form>
-            
         </section>
-
+        <br>
+        <nav class="card-nav">
+            <form action="/animals/{{ animal.id }}">
+                <input type="submit" value="Back" class="link-button">
+            </form>
+    </section>
+</main>
 {% endblock %}

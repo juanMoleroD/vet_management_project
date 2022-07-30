@@ -5,13 +5,13 @@
         <h1>Edit Owner</h1>
         <section class="card-content">
             <form action="/owners/{{ owner.id }}" method="POST" id="owner-form" class="new-edit-form">
-
-                    <label for="owner-name"> Name</label>
-                    <input type="text" name='name' id="vet-name" value="{{ owner.name }}" class="new-edit-form-element">
-                    <label for="owner-contacts">Contact Details</label>
-                    <input type="text" name="contact-details" id="owner-contacts" value="{{ owner.contact_details }}" class="new-edit-form-element">
-                    <br>
-                    <input id='submit-button' type="submit" value="Save" class="link-button">
+                <label for="owner-name"> Name</label>
+                <input type="text" name='name' id="vet-name" value="{{ owner.name }}" class="new-edit-form-element">
+                <label for="owner-contacts">Contact Details</label>
+                <input type="text" name="contact-details" id="owner-contacts" value="{{ owner.contact_details }}"
+                    class="new-edit-form-element">
+                <br>
+                <input id='submit-button' type="submit" value="Save" class="link-button">
             </form>
             <br>
         </section>
@@ -22,27 +22,4 @@
         </nav>
     </section>
 </main>
-
-
-
-
-
-
-        <section>
-            <h1>Edit Owner </h1>
-            <form action="/owners/{{ owner.id }}" method="POST" id="owner-form">
-                <section class="form-items">
-                    <label for="owner-name"> Name</label>
-                    <input type="text" name='name' id="vet-name" value="{{ owner.name }}">
-                    <label for="owner-contacts">Contact Details</label>
-                    <input type="text" name="contact-details" id="owner-contacts" value="{{ owner.contact_details }}">
-                    <br>
-                    <input id='submit-button' type="submit" value="Save changes">
-                    <br>
-                    <a href="/owners/{{owner.id}}">Back</a>
-                </section>
-            </form>
-            
-        </section>
-
 {% endblock %}

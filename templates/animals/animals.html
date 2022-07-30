@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<section>
-    {% for animal in all_animals %}
-    <h1>
-        <a href="/animals/{{ animal.id }}">{{ animal.name }}</a>
-    </h1>
-    <h3>Onwer: {{ animal.owner.name }}</h3> 
-    <h3>Vet: {{ animal.vet.name }}</h3>
-
-    {% endfor %}
-</section>
-<br>
-<a href="/animals/new">Add animal</a>
-
+<main>
+    <section class="card">
+        <h1>Animals</h1>
+        <section class="card-content">
+            <ul>
+                {% for animal in all_animals %}
+                <li>
+                    <a href="/animals/{{ animal.id }}">{{ animal.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <nav class="card-nav">
+            <form action="/animals/new" id="add-new-button">
+                <input type="submit" value="Add Animal" class="link-button">
+            </form>
+        </nav>
+    </section>
+</main>
 {% endblock %}
