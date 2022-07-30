@@ -1,5 +1,6 @@
-from flask import Blueprint, Flask, blueprints, render_template, redirect
+from flask import Blueprint, Flask, blueprints, render_template, redirect, request
 from repositories import vet_repository, animal_repository
+from models.vet import Vet
 
 vets_blueprint = Blueprint("vets", __name__)
 
@@ -17,4 +18,9 @@ def show_one_vet(id):
 def get_new_form():
     return render_template("vets/new.html")
 
-@
+@vets_blueprint.route("/vets", methods=["POST"])
+def create_vet():
+    name = request.form['name']
+    vet = Vet(name)
+    vet_repository.save(vet)
+    return redirect("/vets")
