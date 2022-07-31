@@ -34,8 +34,10 @@ def select_all():
         appointments.append(appointment)
     return appointments
 
-
-
+def update(appointment):
+    sql = "UPDATE appointments SET (animal_id, check_in, check_out) = (%s, %s, %s) WHERE id = %s"
+    values = [appointment.animal.id, appointment.check_in, appointment.check_out, appointment.id]
+    run_sql(sql, values)
 
 
 def delete_all():

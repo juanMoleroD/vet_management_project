@@ -59,9 +59,10 @@ appointment_3 = Appointment(animal_3, date(2022,7,1), date(2029,1,1))
 appointment_repository.save(appointment_3)
 
 appointment_4 = Appointment(animal_4, date(2022,7,1), date(2029,7,1))
-appointment_repository.save(appointment_2)
+appointment_repository.save(appointment_4)
 
 
-print(appointment_repository.select_all())
+test_appointment = Appointment(animal_1, date(2020,1,1), date(2020,2,1), appointment_4.id)
+appointment_repository.update(test_appointment)
 
 #pdb.set_trace()
