@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS appointments;
 DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS owners;
 DROP TABLE IF EXISTS vets;
@@ -22,4 +23,11 @@ CREATE TABLE animals (
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
     vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
     treatment_notes TEXT
+);
+
+CREATE TABLE appointments (
+    id SERIAL PRIMARY KEY,
+    animal_id INT REFERENCES animals(id),
+    check_in VARCHAR(255),
+    check_out VARCHAR(255)
 );
