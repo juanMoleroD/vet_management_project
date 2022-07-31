@@ -5,16 +5,21 @@
         <h1>New Appointment</h1>
         <section class="card-content">
             <form action="/appointments" method="POST" class="new-edit-form">
-                <label for="">Animal Name:</label>
+                <label for="animal">Animal Name:</label>
                 <select name="animal_id" class="new-edit-form-element">
                     {% for animal in animals %}
                     <option value="{{ animal.id }}">{{ animal.name }}</option>
                     {% endfor %}
                 </select>
-                <label for="">Check-in:</label>
-                <label for="">Check-out:</label>
+                <label for="check-in">Check-in:</label>
+                <input type="date" name="check_in" class="new-edit-form-element" required>
+                <label for="check-out">Check-out:</label>
+                <input type="date" name="check_out" class="new-edit-form-element" required>
+                <br>
+                <input type="submit" value="Save" class="link-button" style="width: 40%;">
             </form>
         </section>
+        <br>
         <nav class="card-nav">
             <form action="/appointments/">
                 <input type="submit" value="Back" class="link-button">
