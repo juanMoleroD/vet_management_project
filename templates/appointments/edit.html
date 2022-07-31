@@ -2,19 +2,20 @@
 {% block content %}
 <main>
     <section class="card">
-        <h1>New Appointment</h1>
+        <h1>Edit Appointment</h1>
         <section class="card-content">
-            <form action="/appointments" method="POST" class="new-edit-form">
+            <form action="/appointments/{{ appointment.id }}" method="POST" class="new-edit-form">
                 <label for="animal">Animal Name:</label>
                 <select name="animal_id" class="new-edit-form-element">
                     {% for animal in animals %}
-                    <option value="{{ animal.id }}">{{ animal.name }}</option>
+                    <option value="{{ animal.id }}" {% if animal.id==appointment.animal.id %} selected {% endif %} >
+                        {{ animal.name }}</option>
                     {% endfor %}
                 </select>
                 <label for="check-in">Check-in:</label>
-                <input type="date" name="check_in" class="new-edit-form-element" required>
+                <input type="date" name="check_in" class="new-edit-form-element" value="{{appointment.check_in}}" required>
                 <label for="check-out">Check-out:</label>
-                <input type="date" name="check_out" class="new-edit-form-element" required>
+                <input type="date" name="check_out" class="new-edit-form-element" value="{{appointment.check_out}}" required>
                 <br>
                 <input type="submit" value="Save" class="link-button" style="width: 40%;">
             </form>

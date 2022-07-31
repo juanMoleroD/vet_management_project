@@ -22,7 +22,6 @@ def get_new_form():
 
 @appointments_blueprint.route("/appointments", methods=["POST"])
 def create_appointment():
-
     animal = animal_repository.select(request.form["animal_id"])
     check_in = request.form["check_in"]
     check_out = request.form["check_out"]
@@ -30,3 +29,8 @@ def create_appointment():
     appointment_repository.save(new_appointment)
     return redirect("/appointments")
 
+@appointments_blueprint.route("/appointments/<id>/edit")
+def get_edit_form(id):
+    all_animals = animal_repository.select_all()
+    appointment = appointment_repository.select(id)
+    return render_template("appointments/edit.html", appointment=appointment, animals=all_animals)

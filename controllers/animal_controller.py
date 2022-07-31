@@ -47,7 +47,6 @@ def get_update_form(id):
 
 @animals_blueprint.route("/animals/<id>", methods=["POST"])
 def update(id):
-    animal = animal_repository.select(id)
     name = request.form["name"]
     dob = request.form["date-of-birth"]
     type = request.form["type"]
@@ -57,3 +56,8 @@ def update(id):
     animal_to_update = Animal(name, dob, type, owner, vet, treatement_notes, id)
     animal_repository.update(animal_to_update)
     return redirect("/animals/" + id)
+
+@animals_blueprint.route("/animals/checked-in")
+def get_animals_checked_in():
+    checked_in_animals = animal_repository.select_all_checked_in()
+    return render_template("animals/checked-in.html", animals=checked_in_animals)
