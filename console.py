@@ -4,13 +4,14 @@ from models.appointment import Appointment
 from models.vet import Vet
 from models.owner import Owner
 from models.animal import Animal
-
 from repositories import animal_repository, appointment_repository, owner_repository, vet_repository
+
 
 appointment_repository.delete_all()
 animal_repository.delete_all()
 owner_repository.delete_all()
 vet_repository.delete_all()
+
 
 vet_1 = Vet("Ace Ventura")
 vet_repository.save(vet_1)
@@ -48,7 +49,18 @@ animal_4 = Animal("Hedwig", date(1997,1,1), "Snowy Owl", owner_3, vet_4, "Seems 
 animal_repository.save(animal_4)
 
 
-appointment_1 = Appointment(animal_2, date(2022,7,1), date(2029,7,1))
+appointment_1 = Appointment(animal_1, date(2020,1,1), date(2020,2,1))
 appointment_repository.save(appointment_1)
+
+appointment_2 = Appointment(animal_2, date(2021,3,1), date(2021,3,20))
+appointment_repository.save(appointment_2)
+
+appointment_3 = Appointment(animal_3, date(2022,7,1), date(2029,1,1))
+appointment_repository.save(appointment_3)
+
+appointment_4 = Appointment(animal_4, date(2022,7,1), date(2029,7,1))
+appointment_repository.save(appointment_2)
+
+
 
 #pdb.set_trace()
