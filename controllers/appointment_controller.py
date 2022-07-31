@@ -34,3 +34,17 @@ def get_edit_form(id):
     all_animals = animal_repository.select_all()
     appointment = appointment_repository.select(id)
     return render_template("appointments/edit.html", appointment=appointment, animals=all_animals)
+
+@appointments_blueprint.route("/appointments/<id>", methods=["POST"])
+def update(id):
+    animal = animal_repository.select(request.form["animal_id"])
+    check_in = request.form["check_in"]
+    check_out = request.form["check_out"]
+    appointment_to_update = Appointment(animal, check_in, check_out, id)
+    appointment_repository.update(appointment_to_update)
+    return redirect("/appointments")
+
+@appointments_blueprint.route("/appointments/<id>/delete", methods=["Post"])
+def delete(id):
+    appointment_repository.delete(id)
+    return redirect("/appointments")
