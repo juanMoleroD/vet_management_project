@@ -8,7 +8,7 @@
             <ul>
                 {% for appointment in appointments %}
                 <li><a href="/appointments/{{ appointment.id }}">
-                    {{ appointment.animal.name }} on {{appointment.check-in}}</a></li>
+                    {{ appointment.animal.name }}on {{appointment.check_in}}</a></li>
                 {% endfor %}
             </ul>
         </section>

@@ -6,4 +6,5 @@ appointments_blueprint = Blueprint("appointments", __name__)
 
 @appointments_blueprint.route("/appointments")
 def show_all():
-    return render_template("appointments/appointments.html")
+    all_appointments = appointment_repository.select_all()
+    return render_template("appointments/appointments.html", appointments=all_appointments)
