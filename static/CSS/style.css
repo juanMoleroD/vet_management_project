@@ -64,6 +64,10 @@ body > header {
     font-size: 40px; 
 }
 
+.card > h1 > a:any-link {
+    color: white
+}
+
 .card-content {
     text-align: center;
     width: 70%;

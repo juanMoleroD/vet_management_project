@@ -10,7 +10,8 @@ CREATE TABLE vets (
 CREATE TABLE owners (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    contact_details VARCHAR(255)
+    contact_details VARCHAR(255),
+    registered BOOLEAN
 );
 
 CREATE TABLE animals (

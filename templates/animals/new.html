@@ -14,7 +14,9 @@
                 <label for="owner">Owner</label>
                 <select name="owner_id" id="owner" class="new-edit-form-element" >
                     {% for owner in owners %}
+                    {% if owner.registered %}
                     <option value="{{ owner.id }}">{{ owner.name }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="vet">Vet</label>

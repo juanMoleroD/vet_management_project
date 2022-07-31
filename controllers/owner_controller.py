@@ -1,3 +1,4 @@
+import pdb
 from flask import Flask, Blueprint, render_template, redirect, request
 from repositories import animal_repository, owner_repository
 from models.owner import Owner
@@ -23,7 +24,8 @@ def get_new_form():
 def create_owner():
     name = request.form["name"]
     contact_details = request.form["contact-details"]
-    new_owner = Owner(name, contact_details)
+    registered = True #by default
+    new_owner = Owner(name, contact_details, registered)
     owner_repository.save(new_owner)
     return redirect("/owners")
 
@@ -41,6 +43,7 @@ def get_update_form(id):
 def update(id):
     name = request.form["name"]
     contact_details = request.form["contact-details"]
-    owner_to_update = Owner(name, contact_details, id)
+    registration = request.form["registered"]
+    owner_to_update = Owner(name, contact_details, registration ,id)
     owner_repository.update(owner_to_update)
     return redirect("/owners/" + id)

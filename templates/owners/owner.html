@@ -2,14 +2,21 @@
 {% block content %}
 <main>
     <section class="card">
-        <h1>Owners</h1>
+        <h1><a href="/owners">Owners</a></h1>
         <section class="card-content">
             <h1>{{ owner.name }}</h1>
             <h2>Contact: {{ owner.contact_details }}</h1>
+                <h2>Registered:
+                    {% if owner.registered %}
+                    Yes
+                    {% else %}
+                    No
+                    {% endif %}
+                </h2>
                 <h2>Animals: </h2>
                 <ul>
                     {% for animal in animals %}
-                    <li><a href="/animals/{{ animal.id }}">{{ animal.name }}</a></li>
+                    <li><a href="/animals/{{ animal.id }}">{{ animal.name }} </a></li>
                     {% endfor %}
                 </ul>
         </section>
@@ -20,9 +27,11 @@
             <form action="/owners/{{ owner.id }}/delete" method="POST">
                 <input type="submit" value="Delete" class="link-button">
             </form>
+            {% if owner.registered %}
             <form action="/animals/new">
                 <input type="submit" value="New Animal" class="link-button">
             </form>
+            {% endif %}
         </nav>
     </section>
 </main>

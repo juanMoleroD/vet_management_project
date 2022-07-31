@@ -2,8 +2,8 @@ from db.run_sql import run_sql
 from models.owner import Owner
 
 def save(owner):
-    sql = "INSERT INTO owners (name, contact_details) VALUES (%s, %s) RETURNING id"
-    values = [owner.name, owner.contact_details]
+    sql = "INSERT INTO owners (name, contact_details, registered) VALUES (%s, %s, %s) RETURNING id"
+    values = [owner.name, owner.contact_details, owner.registered]
     result = run_sql(sql, values)
     owner.id = result[0]["id"]
 
@@ -14,7 +14,7 @@ def select(id):
     owner = None
     if results:
         result = results[0]
-        owner = Owner(result["name"], result["contact_details"], result["id"])
+        owner = Owner(result["name"], result["contact_details"], result["registered"], result["id"]) # ATTENTION: may need to encapsulate registered
     return owner
 
 def select_all():
@@ -22,13 +22,13 @@ def select_all():
     results = run_sql(sql)
     owners = []
     for row in results:
-        owner = Owner(row["name"], row["contact_details"], row["id"])
+        owner = Owner(row["name"], row["contact_details"], row["registered"], row["id"]) # another registered property 
         owners.append(owner)
     return owners
 
 def update(owner):
-    sql = "UPDATE owners SET (name, contact_details) = (%s, %s) WHERE id = %s"
-    values = [owner.name, owner.contact_details, owner.id]
+    sql = "UPDATE owners SET (name, contact_details, registered) = (%s, %s, %s) WHERE id = %s" #as per above comment
+    values = [owner.name, owner.contact_details, owner.registered, owner.id]
     run_sql(sql, values)
 
 def delete(id):

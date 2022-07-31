@@ -22,16 +22,16 @@ vet_repository.save(vet_3)
 vet_4 = Vet("Hershel Greene")
 vet_repository.save(vet_4)
 
-owner_1 = Owner("Mike Tyson", "077-6453-89766") #077-MIKE-TYSON
+owner_1 = Owner("Mike Tyson", "077-6453-89766", True) #077-MIKE-TYSON
 owner_repository.save(owner_1)
 
-owner_2 = Owner("Taylor Swift", "0700-TAYLOR")
+owner_2 = Owner("Taylor Swift", "0700-TAYLOR", True)
 owner_repository.save(owner_2)
 
-owner_3 = Owner("Harry Potter", "07914-914-914")
+owner_3 = Owner("Harry Potter", "07914-914-914", False)
 owner_repository.save(owner_3)
 
-animal_1 = Animal("Kenya", date(2010,6,24), "tiger", owner_1, vet_1, "All meat diet forever, keep your arms safe!")
+animal_1 = Animal("Kenya", date(2010,6,24), "Bengal Tiger", owner_1, vet_1, "All meat diet forever, keep your arms safe!")
 animal_repository.save(animal_1)
 
 animal_2 = Animal("Meredith", date(2011,1,1), "Cat", owner_2, vet_3, "Only eats salmon")
