@@ -39,6 +39,10 @@ def update(appointment):
     values = [appointment.animal.id, appointment.check_in, appointment.check_out, appointment.id]
     run_sql(sql, values)
 
+def delete(id):
+    sql = "DELETE FROM appointments WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM appointments"
