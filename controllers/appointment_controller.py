@@ -4,3 +4,6 @@ from models.appointment import Appointment
 
 appointments_blueprint = Blueprint("appointments", __name__)
 
+@appointments_blueprint.route("/appointments")
+def show_all():
+    return render_template("appointments/appointments.html")

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <section class="card">
+        <h1>Appointments</h1>
+        <section class="card-content">
+            <h1>All Appointments:</h1>
+            <ul>
+                {% for appointment in appointments %}
+                <li><a href="/appointments/{{ appointment.id }}">
+                    {{ appointment.animal.name }} on {{appointment.check-in}}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        <nav class="card-nav">
+            <form action="/appointments/new" id="add-new-button">
+                <input type="submit" value="Add New" class="link-button">
+            </form>
+            <form action="/appointments/checked-in">
+                <input type="submit" value="Checked In" class="link-button">
+            </form>
+        </nav>
+    </section>
+</main>
+{% endblock %}
