@@ -62,5 +62,6 @@ appointment_4 = Appointment(animal_4, date(2022,7,1), date(2029,7,1))
 appointment_repository.save(appointment_2)
 
 
+print(appointment_repository.select_all())
 
 #pdb.set_trace()

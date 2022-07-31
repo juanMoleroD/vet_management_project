@@ -21,6 +21,19 @@ def select(id):
         appointment = Appointment(animal, check_in, check_out, id)
     return appointment
 
+def select_all():
+    sql = "SELECT * FROM appointments"
+    results = run_sql(sql)
+    appointments = []
+    for row in results:
+        animal = animal_repository.select(row["id"])
+        check_in = row["check_in"]
+        check_out = row["check_out"]
+        id = row["id"]
+        appointment = Appointment(animal, check_in, check_out, id)
+        appointments.append(appointment)
+    return appointments
+
 
 
 
