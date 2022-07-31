@@ -27,7 +27,7 @@ CREATE TABLE animals (
 
 CREATE TABLE appointments (
     id SERIAL PRIMARY KEY,
-    animal_id INT REFERENCES animals(id),
+    animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
     check_in VARCHAR(255),
     check_out VARCHAR(255)
 );

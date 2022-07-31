@@ -7,3 +7,13 @@ def save(appointment):
     results = run_sql(sql, values)
     appointment.id = results[0]["id"]
 
+
+
+
+
+
+
+
+def delete_all():
+    sql = "DELETE FROM appointments"
+    run_sql(sql)

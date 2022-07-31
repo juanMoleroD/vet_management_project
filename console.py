@@ -7,6 +7,7 @@ from models.animal import Animal
 
 from repositories import animal_repository, appointment_repository, owner_repository, vet_repository
 
+appointment_repository.delete_all()
 animal_repository.delete_all()
 owner_repository.delete_all()
 vet_repository.delete_all()
