@@ -16,15 +16,31 @@ vet_repository.save(vet_1)
 vet_2 = Vet("Dr Dolitle")
 vet_repository.save(vet_2)
 
+vet_3 = Vet("Dr Hamster")
+vet_repository.save(vet_3)
+
+vet_4 = Vet("Hershel Greene")
+vet_repository.save(vet_4)
+
 owner_1 = Owner("Mike Tyson", "077-6453-89766") #077-MIKE-TYSON
 owner_repository.save(owner_1)
 
-animal_1 = Animal("Tony The Tiger", datetime(2010,6,24), "tiger", owner_1, vet_1, "All meat diet forever, doesn't like light")
+owner_2 = Owner("Taylor Swift", "0700-TAYLOR")
+owner_repository.save(owner_2)
+
+owner_3 = Owner("Harry Potter", "07914-914-914")
+owner_repository.save(owner_3)
+
+animal_1 = Animal("Kenya", date(2010,6,24), "tiger", owner_1, vet_1, "All meat diet forever, keep your arms safe!")
 animal_repository.save(animal_1)
 
+animal_2 = Animal("Meredith", date(2011,1,1), "Cat", owner_2, vet_3, "Only eats salmon")
+animal_repository.save(animal_2)
 
+animal_3 = Animal("Olivia", date(2014,1,1), "Cat", owner_2, vet_3, "Mrs Swift spoils her rotten")
+animal_repository.save(animal_3)
 
-
-
+animal_4 = Animal("Hedwig", date(1997,1,1), "Snowy Owl", owner_3, vet_4, "Seems magical sometimes...")
+animal_repository.save(animal_4)
 
 #pdb.set_trace()
