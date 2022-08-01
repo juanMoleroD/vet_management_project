@@ -10,7 +10,18 @@
             <h3><b>Onwer:</b> <a href="/owners/{{ animal.owner.id }}">{{ animal.owner.name }}</a></h3>
             <h3><b>Vet:</b> <a href="/vets/{{ animal.vet.id }}">{{ animal.vet.name }}</a></h3>
             <h3>Treatment Notes</h3>
-            <p>{{ animal.treatment_notes }}</p>
+            <section>
+                <ul id="treatment-notes">
+                    {% for note in notes %}
+                    <li>{{ note.content }}</li>
+                    {% endfor %}
+                </ul>
+                <form action="/notes" method="POST">
+                    <input value="{{ animal.id }}" name="animal_id" hidden>
+                    <input type="text" name="content">
+                    <input type="submit">
+                </form>
+            </section>
         </section>
         <br>
         <nav class="card-nav">

@@ -37,16 +37,16 @@ owner_3 = Owner("Harry Potter", "07914-914-914", False)
 owner_repository.save(owner_3)
 
 
-animal_1 = Animal("Kenya", date(2010,6,24), "Bengal Tiger", owner_1, vet_1, "All meat diet forever, keep your arms safe!")
+animal_1 = Animal("Kenya", date(2010,6,24), "Bengal Tiger", owner_1, vet_1)
 animal_repository.save(animal_1)
 
-animal_2 = Animal("Meredith", date(2011,1,1), "Cat", owner_2, vet_3, "Only eats salmon")
+animal_2 = Animal("Meredith", date(2011,1,1), "Cat", owner_2, vet_3)
 animal_repository.save(animal_2)
 
-animal_3 = Animal("Olivia", date(2014,1,1), "Cat", owner_2, vet_3, "Mrs Swift spoils her rotten")
+animal_3 = Animal("Olivia", date(2014,1,1), "Cat", owner_2, vet_3)
 animal_repository.save(animal_3)
 
-animal_4 = Animal("Hedwig", date(1997,1,1), "Snowy Owl", owner_3, vet_4, "Seems magical sometimes...")
+animal_4 = Animal("Hedwig", date(1997,1,1), "Snowy Owl", owner_3, vet_4)
 animal_repository.save(animal_4)
 
 

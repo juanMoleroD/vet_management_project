@@ -23,7 +23,7 @@ CREATE TABLE animals (
     type VARCHAR(255),
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
     vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
-    treatment_notes TEXT
+    notes_id
 );
 
 CREATE TABLE appointments (

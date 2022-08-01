@@ -133,6 +133,10 @@ body > header {
     padding-right: 15px;
 }
 
+#treatment-notes > li {
+    font-size: 16px;
+}
+
 /* Footer */
 footer {
     position: fixed;

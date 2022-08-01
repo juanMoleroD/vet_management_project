@@ -1,6 +1,6 @@
 import pdb
 from flask import Flask, Blueprint, render_template, redirect, request
-from repositories import animal_repository, vet_repository, owner_repository
+from repositories import animal_repository, note_repository, vet_repository, owner_repository
 from models.animal import Animal
 from datetime import date
 
@@ -14,7 +14,8 @@ def show_all_animals():
 @animals_blueprint.route("/animals/<id>")
 def show_one_animal(id):
     animal = animal_repository.select(id)
-    return render_template("animals/animal.html", animal=animal)
+    notes = note_repository.select_by_animal_id(id)
+    return render_template("animals/animal.html", animal=animal, notes=notes)
 
 @animals_blueprint.route("/animals/new")
 def get_new_form():
@@ -32,8 +33,7 @@ def create_animal():
     type = request.form["type"]
     owner = owner_repository.select(request.form["owner_id"])
     vet = vet_repository.select(request.form["vet_id"])
-    treatement_notes = request.form["treatment_notes"]
-    new_animal = Animal(name, dob, type, owner, vet, treatement_notes)
+    new_animal = Animal(name, dob, type, owner, vet)
     animal_repository.save(new_animal)
     return redirect("/animals")
 
@@ -56,8 +56,7 @@ def update(id):
     type = request.form["type"]
     owner = owner_repository.select(request.form["owner_id"])
     vet = vet_repository.select(request.form["vet_id"])
-    treatement_notes = request.form["treatment_notes"]
-    animal_to_update = Animal(name, dob, type, owner, vet, treatement_notes, id)
+    animal_to_update = Animal(name, dob, type, owner, vet, id)
     animal_repository.update(animal_to_update)
     return redirect("/animals/" + id)
 

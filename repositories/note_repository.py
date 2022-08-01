@@ -47,3 +47,16 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM notes"
     run_sql(sql)
+
+def select_by_animal_id(animal_id):
+    sql = "SELECT * FROM notes WHERE animal_id = %s"
+    values = [animal_id]
+    results = run_sql(sql, values)
+    notes = []
+    animal = animal_repository.select(animal_id)
+    for row in results:
+        content = row["content"]
+        id = row["id"]
+        note = Note(animal, content, id)
+        notes.append(note)
+    return notes
