@@ -22,8 +22,7 @@ CREATE TABLE animals (
     date_of_birth DATE,
     type VARCHAR(255),
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
-    vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
-    notes_id
+    vet_id INT REFERENCES vets(id) ON DELETE CASCADE
 );
 
 CREATE TABLE appointments (
