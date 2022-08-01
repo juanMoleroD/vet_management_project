@@ -2,6 +2,7 @@ import pdb
 from flask import Flask, Blueprint, render_template, redirect, request
 from repositories import animal_repository, vet_repository, owner_repository
 from models.animal import Animal
+from datetime import date
 
 animals_blueprint = Blueprint("animals", __name__)
 
@@ -25,6 +26,9 @@ def get_new_form():
 def create_animal():
     name = request.form["name"]
     dob = request.form["date-of-birth"]
+    if dob == "":
+        today = date.today()
+        dob = today.replace(year = int(today.year) - int(request.form["age"]))
     type = request.form["type"]
     owner = owner_repository.select(request.form["owner_id"])
     vet = vet_repository.select(request.form["vet_id"])
