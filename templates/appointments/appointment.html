@@ -5,8 +5,8 @@
         <h1><a href="/appointments">Appointments</a></h1>
         <section class="card-content">
             <h1>Name: {{ appointment.animal.name }}</h1>
-            <h3>Check-in: {{ appointment.check_in}}</h3>
-            <h3>Check-out: {{ appointment.check_out}}</h3>
+            <h3>Check-in: {{ appointment.get_formated_date(appointment.check_in) }}</h3>
+            <h3>Check-out: {{ appointment.get_formated_date(appointment.check_out) }}</h3>
             <h3>Owner: <a href="/owners/{{ appointment.animal.owner.id }}">{{ appointment.animal.owner.name }}</a></h3>
             <h3>Vet: <a href="/vets/{{ appointment.animal.vet.id }}">{{ appointment.animal.vet.name }}</a></h3>
             

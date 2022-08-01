@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vet Management App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>Vet Management App</h1>
-        <nav id="side-nav-bar" >
+        <nav id="side-nav-bar">
             <ul id="nav-list">
                 <li><a href="/vets">Vets</a></li>
                 <li><a href="/owners">Owners</a></li>
@@ -19,12 +24,13 @@
             </ul>
         </nav>
     </header>
-        {% block content %}
-        {% endblock %}
+    {% block content %}
+    {% endblock %}
     <footer>
         <h1>
             &copy; Juan Molero 2022
         </h1>
     </footer>
 </body>
+
 </html>

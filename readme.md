@@ -1,4 +1,4 @@
-This is a vet management app using python (flask and %psycogb2%) and postgreSQL
+This is a vet management app using python (flask and psycopg2) and postgreSQL
 
 you need to have a postgreSLQ database set up and named vet_management.
 

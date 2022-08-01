@@ -18,7 +18,7 @@ CREATE TABLE owners (
 CREATE TABLE animals (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    date_of_birth VARCHAR(255),
+    date_of_birth DATE,
     type VARCHAR(255),
     owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
     vet_id INT REFERENCES vets(id) ON DELETE CASCADE,
@@ -28,6 +28,6 @@ CREATE TABLE animals (
 CREATE TABLE appointments (
     id SERIAL PRIMARY KEY,
     animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
-    check_in VARCHAR(255),
-    check_out VARCHAR(255)
+    check_in DATE,
+    check_out DATE
 );
