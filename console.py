@@ -1,12 +1,13 @@
 import pdb
 from datetime import datetime, date
 from models.appointment import Appointment
+from models.note import Note
 from models.vet import Vet
 from models.owner import Owner
 from models.animal import Animal
-from repositories import animal_repository, appointment_repository, owner_repository, vet_repository
+from repositories import animal_repository, appointment_repository, note_repository, owner_repository, vet_repository
 
-
+note_repository.delete_all()
 appointment_repository.delete_all()
 animal_repository.delete_all()
 owner_repository.delete_all()
@@ -61,6 +62,24 @@ appointment_repository.save(appointment_3)
 appointment_4 = Appointment(animal_4, date(2022,7,1), date(2029,7,1))
 appointment_repository.save(appointment_4)
 
+
+note_1 = Note(animal_1, "Responds well with steak only diet")
+note_repository.save(note_1)
+
+note_2 = Note(animal_1, "Careful with your arms if Kenya doesn't know you!")
+note_repository.save(note_2)
+
+note_3 = Note(animal_2, "Only eats salmon")
+note_repository.save(note_3)
+
+note_4 = Note(animal_2, "Mrs Swift spoils her rotten")
+note_repository.save(note_4)
+
+note_5 = Note(animal_3, "Mrs Swift spoils her rotten")
+note_repository.save(note_5)
+
+note_6 = Note(animal_4, "Seems magical sometimes...")
+note_repository.save(note_6)
 
 
 

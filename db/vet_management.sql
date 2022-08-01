@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS notes;
 DROP TABLE IF EXISTS appointments;
 DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS owners;
@@ -30,4 +31,10 @@ CREATE TABLE appointments (
     animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
     check_in DATE,
     check_out DATE
+);
+
+CREATE TABLE notes (
+    id SERIAL PRIMARY KEY,
+    animal_id INT REFERENCES animals(id) ON DELETE CASCADE,
+    content TEXT
 );
