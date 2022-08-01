@@ -1,8 +1,9 @@
 import pdb
-from datetime import datetime
+from datetime import datetime, date
 from db.run_sql import run_sql
 from models.appointment import Appointment
-from repositories import animal_repository
+from models.animal import Animal
+from repositories import animal_repository, owner_repository, vet_repository
 
 def save(appointment):
     sql = "INSERT INTO appointments (animal_id, check_in, check_out) VALUES (%s, %s, %s) RETURNING id"
@@ -49,3 +50,24 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM appointments"
     run_sql(sql)
+
+def get_animals_checked_in_today():
+    today = date.today()
+    sql = '''SELECT animals.* FROM animals 
+                INNER JOIN appointments on appointments.animal_id = animals.id 
+                    WHERE appointments.check_out >= %s'''
+    values = [today]
+    results = run_sql(sql, values)
+    animals = []
+    for row in results:
+        name = row["name"]
+        dob = row["date_of_birth"]
+        type = row["type"]
+        owner = owner_repository.select(row["owner_id"])
+        vet = vet_repository.select(row["vet_id"])
+        treatment_notes = row["treatment_notes"]
+        id = row["id"]
+        animal = Animal(name, dob, type, owner, vet, treatment_notes, id)
+        animals.append(animal)
+    return animals
+

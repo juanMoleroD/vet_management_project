@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <section class="card">
+        <h1><a href="/appointments">Appointments</a></h1>
+        <section class="card-content">
+            <h1>Currently Checked In</h1>
+            <ul>
+                {% for animal in animals %}
+                <li>
+                    <a href="/animals/{{ animal.id }}">{{ animal.name }}</a>  - Vet: <a href="/vets/{{ animal.vet.id }}">{{ animal.vet.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </section>
+</main>
+{% endblock %}

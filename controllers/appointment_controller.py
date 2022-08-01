@@ -48,3 +48,8 @@ def update(id):
 def delete(id):
     appointment_repository.delete(id)
     return redirect("/appointments")
+
+@appointments_blueprint.route("/appointments/checked-in")
+def get_animals_checked_in():
+    checked_in_animals = appointment_repository.get_animals_checked_in_today()
+    return render_template("appointments/checked-in.html", animals=checked_in_animals)
