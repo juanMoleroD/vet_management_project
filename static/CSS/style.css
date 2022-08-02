@@ -2,12 +2,15 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2;
     background-image: url('/static/images/dog-bw.jpg');
-    background-size: cover;
+    background-size:contain;
     background-position: 100% 100%;
     background-repeat: no-repeat;
-    height: 900px;
+    height: 920px;
+    
 }
+
 
 /* header */
 body > header {
@@ -17,17 +20,26 @@ body > header {
     padding-right: 50px;
     background-color: purple;
     color: white;
-    font-size: 1.2rem;
+    align-items: center;
+}
+
+header > h1 {
+    font-size: 50px;
+}
+
+header > h1 > a:any-link {
+    color: white
 }
 
 #nav-list {
     list-style: none;
     display: flex;
+
 }
 
 #nav-list > li {
     margin: 20px;
-    font-size: 1.3rem;
+    font-size: 22px;
 }
 
 #nav-list > li > a:any-link {
@@ -38,6 +50,7 @@ body > header {
 
 
 /* cards  */
+
 .card {
     width: 40%;
     margin-left: 40px;
@@ -103,6 +116,19 @@ body > header {
     padding: 3px
 }
 
+#home-card-container {
+    margin-top: 100px;
+}
+
+.home-card {
+    background-color: purple;
+    height: 60px;
+}
+
+.home-card > h1 {
+    border-radius: 20px;
+}
+
 
 /* forms */
     /* edit forms */
@@ -132,10 +158,15 @@ body > header {
     font-size: 18px;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: purple;
+    color: white;
 }
 
 #treatment-notes > li {
     font-size: 16px;
+    list-style: none;
 }
 
 /* Footer */

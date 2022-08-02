@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, redirect
+from flask import Flask, Blueprint, redirect, render_template
 
 #Blueprint imports
 from controllers.vet_controller import vets_blueprint
@@ -21,4 +21,4 @@ if __name__ == "__main__":
 
 @app.route("/")
 def index():
-    return redirect("/vets") 
+    return render_template("home.html")

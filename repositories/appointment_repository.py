@@ -65,9 +65,8 @@ def get_animals_checked_in_today():
         type = row["type"]
         owner = owner_repository.select(row["owner_id"])
         vet = vet_repository.select(row["vet_id"])
-        treatment_notes = row["treatment_notes"]
         id = row["id"]
-        animal = Animal(name, dob, type, owner, vet, treatment_notes, id)
+        animal = Animal(name, dob, type, owner, vet, id)
         animals.append(animal)
     return animals
 
