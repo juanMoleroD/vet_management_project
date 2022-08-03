@@ -13,19 +13,21 @@
 </head>
 
 <body>
-    <header>
-        <h1><a href="/">Vet Management App</a></h1>
-        <nav id="side-nav-bar">
-            <ul id="nav-list">
-                <li><a href="/vets">Vets</a></li>
-                <li><a href="/owners">Owners</a></li>
-                <li><a href="/animals">Animals</a></li>
-                <li><a href="/appointments">Appointments</a></li>
-            </ul>
-        </nav>
-    </header>
-    {% block content %}
-    {% endblock %}
+    <section>
+        <header class="header">
+            <h1><a href="/">Vet Management App</a></h1>
+            <nav id="side-nav-bar">
+                <ul id="nav-list">
+                    <li><a href="/vets">Vets</a></li>
+                    <li><a href="/owners">Owners</a></li>
+                    <li><a href="/animals">Animals</a></li>
+                    <li><a href="/appointments">Appointments</a></li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
+    </section>
     <footer>
         <h1>
             &copy; Juan Molero 2022

@@ -7,12 +7,15 @@ body {
     background-size:contain;
     background-position: 100% 100%;
     background-repeat: no-repeat;
-    height: 1100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1030px
     
 }
 
 /* header */
-body > header {
+.header {
     display: flex;
     justify-content: space-between;
     padding-left: 20px;
@@ -46,10 +49,6 @@ header > h1 > a:any-link {
 }
 
 /* Main content */
-
-main {
-    
-}
 
 /* cards  */
 
@@ -173,9 +172,6 @@ main {
 
 /* Footer */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     height: 100px;
     width: 100%;
     background-color: purple;
