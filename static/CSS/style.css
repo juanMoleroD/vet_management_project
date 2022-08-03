@@ -7,10 +7,9 @@ body {
     background-size:contain;
     background-position: 100% 100%;
     background-repeat: no-repeat;
-    height: 920px;
+    height: 1100px;
     
 }
-
 
 /* header */
 body > header {
@@ -48,6 +47,9 @@ header > h1 > a:any-link {
 
 /* Main content */
 
+main {
+    
+}
 
 /* cards  */
 
