@@ -9,7 +9,7 @@ class AnimalTest(unittest.TestCase):
     def setUp(self):
         self.vet = Vet("Charlie")
         self.owner = Owner("Juan", "07007707707")
-        self.animal = Animal("Mandy", datetime(2019,7,9), "dog", self.owner, self.vet, "Routine checkup, all good" )
+        self.animal = Animal("Mandy", datetime(2019,7,9), "dog", self.owner, self.vet )
     
     def test_animal_has_name(self):
         self.assertEqual("Mandy", self.animal.name)
@@ -22,6 +22,3 @@ class AnimalTest(unittest.TestCase):
 
     def test_animal_has_contact_details(self):
         self.assertEqual("07007707707", self.animal.get_contact_details())
-    
-    def test_animal_has_treatment_notes(self):
-        self.assertEqual("Routine checkup, all good", self.animal.treatment_notes)

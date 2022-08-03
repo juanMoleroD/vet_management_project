@@ -53,8 +53,8 @@ def delete_all():
 
 def get_animals_checked_in_today():
     today = date.today()
-    sql = '''SELECT animals.* FROM animals 
-                INNER JOIN appointments ON appointments.animal_id = animals.id 
+    sql = '''SELECT animals.* 
+                FROM animals INNER JOIN appointments ON appointments.animal_id = animals.id 
                     WHERE appointments.check_out >= %s'''
     values = [today]
     results = run_sql(sql, values)
